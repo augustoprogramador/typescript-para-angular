@@ -55,6 +55,30 @@ let boleto: [string, number, number] = ['água', 7.0, 12341232134234];
  */
 
 let aniversario: Date = new Date('2023-04-07 05:00');
-console.log(aniversario.toString());
+// console.log(aniversario.toString());
+
+// Funções
+
+function addNumber(x: number, y: number): number {
+    return x + y;
+}
+
+function addToHello(name: string): string {
+    return `Hello, ${name}`;
+}
+
+let soma: number = addNumber(3, 5);
+
+// console.log(soma);
+// console.log(addToHello('Augusto'));
+
+function callToPhone(phone: number | string): number | string {
+    return phone;
+}
+
+console.log(callToPhone(12345678));
 
 
+async function getDataBase(id: number): Promise<string> {
+    return 'Augusto';
+}
