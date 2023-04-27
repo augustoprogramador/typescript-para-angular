@@ -34,3 +34,27 @@ let meuProduto: ProdutoLoja = {
     preco: 89,
     unidades: 2
 }
+
+/**
+ * Arrays
+ */
+
+let dados: string[] = ['Augusto', 'José', 'Ana'];
+let dados2: Array<string> = ['Augusto', 'Ana', 'Adriana'];
+
+let infos: (string | number)[] = [322, 'Felipe'];
+
+/**
+ * Tuplas
+ */
+
+let boleto: [string, number, number] = ['água', 7.0, 12341232134234];
+
+/**
+ * Datas
+ */
+
+let aniversario: Date = new Date('2023-04-07 05:00');
+console.log(aniversario.toString());
+
+
