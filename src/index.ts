@@ -105,4 +105,41 @@ const bot2: robot2 = {
     name: 'Augusto'
 };
 
-console.log(bot1, bot2);
+// console.log(bot1, bot2);
+
+// Classes
+/**
+ * Public
+ * Private -> Somente a própria classe pode acessar o recurso
+ * Protected -> Classes herdadas podem acessar recursos da classe pai
+ */
+
+class Character {
+    name: string;
+    strength: number;
+    skill: number;
+
+    constructor(name: string, strength: number, skill: number) {
+        this.name = name;
+        this.strength = strength;
+        this.skill = skill;
+    }
+
+    public attack() {
+        console.log(`Attack with ${this.strength} points`);
+    }
+}
+
+class Magician extends Character {
+    magicPoints: number;
+
+    constructor(name: string, strength: number, skill: number, magicPoints: number) {
+        super(name, strength, skill);
+        this.magicPoints = magicPoints;
+    }
+
+}
+
+const p1 = new Character('Ryu', 10, 98);
+const p2 = new Magician('Mago Negro', 10, 98, 100);
+p1.attack();
