@@ -76,9 +76,33 @@ function callToPhone(phone: number | string): number | string {
     return phone;
 }
 
-console.log(callToPhone(12345678));
+// console.log(callToPhone(12345678));
 
 
 async function getDataBase(id: number): Promise<string> {
     return 'Augusto';
 }
+
+// INTERFACES (type X interface)
+
+type robot = {
+    readonly id: number | string,
+    name: string
+};
+
+interface robot2 {
+    readonly id: number | string,
+    name: string
+}
+
+const bot1: robot = {
+    id: 1,
+    name: 'Augusto'
+};
+
+const bot2: robot2 = {
+    id: 1,
+    name: 'Augusto'
+};
+
+console.log(bot1, bot2);
