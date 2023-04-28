@@ -142,4 +142,14 @@ class Magician extends Character {
 
 const p1 = new Character('Ryu', 10, 98);
 const p2 = new Magician('Mago Negro', 10, 98, 100);
-p1.attack();
+// p1.attack();
+
+// Generics
+
+function concatArray<T>(...itens: T[]): T[] {
+    return new Array().concat(...itens);
+}
+
+const numArray = concatArray<number[] | boolean[]>([1, 3], [false], [3, 4, 5]);
+const strArray = concatArray(['Augusto', 'Camargo'], ['Ludimila']);
+console.log(numArray);
