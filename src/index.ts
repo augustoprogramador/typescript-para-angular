@@ -152,4 +152,52 @@ function concatArray<T>(...itens: T[]): T[] {
 
 const numArray = concatArray<number[] | boolean[]>([1, 3], [false], [3, 4, 5]);
 const strArray = concatArray(['Augusto', 'Camargo'], ['Ludimila']);
-console.log(numArray);
+// console.log(numArray);
+
+// Decorators
+
+function apiVersion(version: string) {
+    return (target: any) => {
+        Object.assign(target.prototype, {__version: version});
+    }
+}
+
+// @apiVersion('1.0')
+// class Api {}
+
+// const api = new Api();
+// console.log(api.__version);
+
+// Attribute Decorator
+function minLength(length: number) {
+    return (target: any, key: string) => {
+        console.log('target', target);
+        console.log('key', key);
+        
+        let _value = target[key];
+
+        const getter = () => _value;
+        const setter = (value: string) => {
+            if (value.length < length) {
+                throw new Error(`Tamanho menor do que ${length}`);
+            }
+            _value = value;
+        };
+
+        Object.defineProperty(target, key, {
+            get: getter,
+            set: setter
+        });
+    }
+}
+class Api {
+    @minLength(8)
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+
+const api = new Api('produtos');
+console.log(api.name);
